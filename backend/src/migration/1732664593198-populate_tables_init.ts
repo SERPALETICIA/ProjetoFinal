@@ -37,7 +37,6 @@ export class PopulateTablesInit1732664593198 implements MigrationInterface {
                 "year-model" integer NOT NULL,
                 "type-id" uuid NOT NULL,
                 "model-id" uuid NOT NULL,
-                "price" numeric NOT NULL,
                 "photo" varchar NOT NULL,
                 "created-at" timestamp NOT NULL DEFAULT now(),
                 "updated-at" timestamp NOT NULL DEFAULT now(),

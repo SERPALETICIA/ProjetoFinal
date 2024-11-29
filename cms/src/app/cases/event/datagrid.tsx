@@ -16,13 +16,7 @@ const columns: GridColDef[] = [
     field: 'id',
     headerName: 'Código Identificação',
     resizable: false,
-    width: 350
-  },
-  {
-    field: 'name',
-    headerName: 'Tipo do Evento',
-    resizable: false,
-    flex: 1
+    width: 150
   },
   {
     field: 'action',

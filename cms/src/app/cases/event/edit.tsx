@@ -12,8 +12,13 @@ function EventEditPage() {
   const params = useParams();
 
   const [event, setEvent] = useState<IEvent>({
-    name: ''
-  } as unknown as IEvent);
+    description : '',
+    photo : '',
+    eventDate : 0,
+    location : '',
+    type : {},
+    model : {},
+  }  as IEvent);
 
   useEffect(() => {
 

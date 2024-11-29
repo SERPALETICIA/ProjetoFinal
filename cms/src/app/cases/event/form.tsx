@@ -7,7 +7,6 @@ import { toast } from "react-toastify";
 import { IEvent } from "../../../@libix/types";
 import { EventService } from "../../../services/event.service";
 
-
 type EventFormProps = {
   event: IEvent;
   setEvent: (event: IEvent) => void;
@@ -31,7 +30,7 @@ function EventForm({
     serviceEvent
       .then(() => {
         toast.success('Registro atualizado com sucesso!');
-        navigate('/eventts');
+        navigate('/events');
       })
       .catch(error => toast.error(String(error)))
       .finally(() => setLoading(false))
@@ -45,7 +44,7 @@ function EventForm({
       EventService.remove(event.id)
         .then(() => {
         toast.success('Registro excluído com sucesso!');
-        navigate('/eventts');
+        navigate('/events');
       })
       .catch(error => toast.error(String(error)))
       .finally(() => setLoading(false))
@@ -54,7 +53,7 @@ function EventForm({
   return (
     <SideForm
       open={showForm}
-      title="Cadastro de Tipo de Evento"
+      title="Cadastro de Eventos"
       loading={loading}
       onSave={handleSave}
       {...(event.id && {onDelete: handleDelete})}
@@ -66,8 +65,8 @@ function EventForm({
         label="Tipo do Evento"
         variant="outlined"
         size="small"
-        //value={event.name}
-        //onChange={event => setEvent({...event, name: event.target.value})}
+        value={event.description}
+        //onChange={event => setEvent({...event, description: event.target.value})}
       />
     </SideForm>
   )

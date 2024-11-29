@@ -53,7 +53,7 @@ function EventFactoryForm({
   return (
     <SideForm
       open={showForm}
-      title="Cadastro de Tipo de Eventos"
+      title="Cadastro do local do Eventos"
       loading={loading}
       onSave={handleSave}
       {...(eventFactory.id && {onDelete: handleDelete})}
@@ -62,7 +62,7 @@ function EventFactoryForm({
         fullWidth
         required
         autoFocus
-        label="Tipo do Evento"
+        label="Local do Evento"
         variant="outlined"
         size="small"
         value={eventFactory.name}

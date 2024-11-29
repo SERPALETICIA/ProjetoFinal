@@ -5,8 +5,12 @@ import { IEvent } from "../../../@libix/types";
 function EventCreatePage() {
 
   const [event, setEvent] = useState<IEvent>({
-    name: ''
-  } as unknown as IEvent);
+    description : '',
+    photo : '',
+    eventDate : 0,
+    location : '',
+    type : {},
+    model : {},  }  as IEvent);
 
   return (
     <EventForm 

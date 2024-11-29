@@ -53,7 +53,7 @@ function EventTypeForm({
   return (
     <SideForm
       open={showForm}
-      title="Cadastro de Tipo de Eventos"
+      title="Cadastro de Eventos"
       loading={loading}
       onSave={handleSave}
       {...(eventType.id && {onDelete: handleDelete})}
@@ -62,7 +62,7 @@ function EventTypeForm({
         fullWidth
         required
         autoFocus
-        label="Tipo do Evento"
+        label="Cadastros do Evento"
         variant="outlined"
         size="small"
         value={eventType.name}

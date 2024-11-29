@@ -39,6 +39,7 @@ function App() {
             <Route path="new" element={ <EventCreatePage /> } />
             <Route path=":id" element={ <EventEditPage /> } />
           </Route>
+
         </Routes>
       </main>
       <ToastContainer />

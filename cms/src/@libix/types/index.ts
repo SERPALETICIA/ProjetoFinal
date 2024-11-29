@@ -18,6 +18,10 @@ export interface IEventModel{
 }
 
 export interface IEvent{
+  priceRent: unknown;
+  yearModel: unknown;
+  yearFactory: unknown;
+
 
   id?: string,
   description : string;

@@ -1,4 +1,3 @@
-
 import { TextField } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -11,11 +10,12 @@ type EventModelFormProps = {
   eventModel: IEventModel;
   setEventModel: (eventModel: IEventModel) => void;
   showForm: boolean;
-}
+};
+
 function EventModelForm({
   eventModel,
   setEventModel,
-  showForm
+  showForm,
 }: EventModelFormProps) {
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
@@ -23,42 +23,46 @@ function EventModelForm({
   const handleSave = () => {
     setLoading(true);
 
-    const serviceEvent = (eventModel.id) ? 
-        EventModelService.update(eventModel.id, eventModel) :  
-            EventModelService.create(eventModel);
+    const serviceEvent = eventModel.id
+      ? EventModelService.update(eventModel.id, eventModel)
+      : EventModelService.create(eventModel);
 
     serviceEvent
       .then(() => {
-        toast.success('Registro atualizado com sucesso!');
-        navigate('/event-Models');
+        toast.success("Registro atualizado com sucesso!");
+        navigate("/event-models");
       })
-      .catch(error => toast.error(String(error)))
-      .finally(() => setLoading(false))
+      .catch((error) =>
+        toast.error(error?.message || "Erro ao processar a solicitação.")
+      )
+      .finally(() => setLoading(false));
+  };
 
-  
-  }
   const handleDelete = () => {
     setLoading(true);
 
-    if (eventModel.id) {
+    if (eventModel?.id) {
       EventModelService.remove(eventModel.id)
         .then(() => {
-        toast.success('Registro excluído com sucesso!');
-        navigate('/event-Models');
-      })
-      .catch(error => toast.error(String(error)))
-      .finally(() => setLoading(false))
+          toast.success("Registro excluído com sucesso!");
+          navigate("/event-models");
+        })
+        .catch((error) =>
+          toast.error(error?.message || "Erro ao excluir o registro.")
+        )
+        .finally(() => setLoading(false));
     }
-  }
+  };
+
   return (
     <SideForm
       open={showForm}
-      title="Cadastro de Tipo de Eventos"
+      title="Cadastro de Modelos de Eventos"
       loading={loading}
       onSave={handleSave}
-      {...(eventModel.id && {onDelete: handleDelete})}
+      {...(eventModel.id && { onDelete: handleDelete })}
     >
-      <TextField 
+      <TextField
         fullWidth
         required
         autoFocus
@@ -66,10 +70,12 @@ function EventModelForm({
         variant="outlined"
         size="small"
         value={eventModel.name}
-        onChange={event => setEventModel({...eventModel, name: event.target.value})}
+        onChange={(e) =>
+          setEventModel({ ...eventModel, name: e.target.value })
+        }
       />
     </SideForm>
-  )
+  );
 }
 
 export default EventModelForm;

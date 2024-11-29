@@ -2,6 +2,7 @@ import { Box, Button, Stack } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add"
 import { Outlet, useNavigate } from "react-router-dom";
 import BreadCrumb from "../../components/ui/bread-crumb";
+import EventModelDataGrid from "./datagrid";
 
 
 
@@ -17,7 +18,7 @@ function EventModelLayout() {
     <Stack
       className="page-container"
     >
-      <BreadCrumb title="Cadastro de Tipo de Evento" />
+      <BreadCrumb title="Cadastro Modelos de Evento" />
       <Box
         display="flex"
         width="100%"
@@ -33,6 +34,7 @@ function EventModelLayout() {
         </Button>
       </Box>
 
+      <EventModelDataGrid />
 
       <Outlet />
     </Stack>
