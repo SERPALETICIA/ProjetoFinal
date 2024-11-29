@@ -9,9 +9,7 @@ export class EventModel{
     @Column({length: 60, nullable: false})
     name: string;
 
-    @ManyToOne(() => EventFactory, {eager: true, nullable: false})
-    @JoinColumn ({ name : 'factory-id'})
-    factory: EventFactory 
+    
 
     @CreateDateColumn({ name : 'create-at'})
     createAt: Date;

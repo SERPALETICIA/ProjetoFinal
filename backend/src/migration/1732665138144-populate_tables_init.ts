@@ -18,15 +18,14 @@ export class PopulateTablesInit1732665138144 implements MigrationInterface {
                 ('Feira'),
                 ('Seminário'),
                 ('Show');
-            `)
+            `);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         queryRunner.query(`
             DELETE FROM public."u4-factory"
-                
             DELETE FROM public."u4-type"
-            `)
+            `);
     }
 
 }

@@ -20,13 +20,13 @@ export class PopulateTablesInit1732664593198 implements MigrationInterface {
                 PRIMARY KEY ("id")
             );
 
-            CREATE TABLE "public"."u4-model" (
+             CREATE TABLE "public"."u4-model" (
                 "id" uuid NOT NULL DEFAULT uuid_generate_v4(),
                 "name" varchar NOT NULL,
                 "factory-id" uuid NOT NULL,
                 "created-at" timestamp NOT NULL DEFAULT now(),
                 "updated-at" timestamp NOT NULL DEFAULT now(),
-                CONSTRAINT "FK-FACTORY" FOREIGN KEY ("factory-id") REFERENCES "public"."u4-factory"("id"),
+                CONSTRAINT "FK_FACTORY" FOREIGN KEY ("factory-id") REFERENCES "public"."u4-factory"("id"),
                 PRIMARY KEY ("id")
             );
 
@@ -45,16 +45,15 @@ export class PopulateTablesInit1732664593198 implements MigrationInterface {
                 PRIMARY KEY ("id")
             );
 
-            `)
+            `);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
         queryRunner.query(`
-            DROP TABLE "public"."u4-event";
+            DROP TABLE "public"."u4-vehicle";
             DROP TABLE "public"."u4-type";
             DROP TABLE "public"."u4-model";
-            DROP TABLE "public"."u4-factory"
-            `)
+            DROP TABLE "public"."u4-factory";
+        `);
     }
-
 }
